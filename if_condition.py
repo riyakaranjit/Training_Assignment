@@ -53,13 +53,13 @@ def compute_grade(marks: int) -> str:
 
 
 if __name__ == '__main__':
-    # num1, num2, num3 = map(int, input("Enter 3 numbers separated by space: ").split())
-    # print(largest_number(num1, num2, num3))
-    # char1 = str(input('Enter a character to check its type: '))
-    # print(case_type(char1))
-    # alphabet = str(input('Enter a alphabet to check if it is vowel or consonant: '))
-    # print(is_vowel(alphabet))
-    # input_year = int(input('Enter a year to check if it is leap year or not: '))
-    # print(is_leap_year(input_year))
+    num1, num2, num3 = map(int, input("Enter 3 numbers separated by space: ").split())
+    print(largest_number(num1, num2, num3))
+    char1 = str(input('Enter a character to check its type: '))
+    print(case_type(char1))
+    alphabet = str(input('Enter a alphabet to check if it is vowel or consonant: '))
+    print(is_vowel(alphabet))
+    input_year = int(input('Enter a year to check if it is leap year or not: '))
+    print(is_leap_year(input_year))
     grade = int(input('Enter your marks to check your grade: '))
     print(compute_grade(grade))
