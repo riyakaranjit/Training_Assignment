@@ -1,4 +1,6 @@
 from functools import reduce
+from sorting_algorithm_module import insertion_sort, bubble_sort, selection_sort
+from lists import mean, variance, standard_deviation
 
 
 def exponent(x: int, y: int) -> int:
@@ -43,7 +45,34 @@ def reverse(arg: str) -> str:
     return arg[::-1]
 
 
-if __name__ == "__main__":
+def has_permission(page):
+    """
+    Example of accessing a function inside a function aka nested function. These internal functions are used for
+    encapsulation for completely hiding the function from the global scope. Hence, they can't be accessed directly.
+    :param page: input
+    :return: function object
+    """
+    def permission(username):
+        if username.lower() == 'admin':
+            return f'{username.title()} has permission to access the {page}.'
+        else:
+            return f'{username.title()} doesn\'t has permission to access the {page}.'
+    return permission
+
+
+def f1():
+    statement = 'I love coding.'
+
+    def f2():
+        nonlocal statement  # Nonlocal keyword defines the variable in global scope.
+        statement = 'Me too'
+        print(statement)
+
+    f2()
+    print(statement)
+
+
+def main():
     X, Y = map(int, input("Enter the base and exponent separated by space: ").split())
     print(f'The exponential value of base {X} and exponent {Y} is: {exponent(X, Y)}')
 
@@ -64,3 +93,41 @@ if __name__ == "__main__":
 
     lambda_func = lambda a, b: 2 * a + b
     print(lambda_func(2, 10))
+
+    check_admin_permission = has_permission('Admin Page')
+    print(check_admin_permission('admin'))
+    print(check_admin_permission('john'))
+
+    f1()
+
+    array = [78, 12, 10, 8, 59, 23, 27]
+    print('Before bubble sort:', array)
+    bubble_sort(array)
+    print('After bubble sort:', array)
+
+    array = [78, 12, 10, 8, 59, 23, 27]
+    print('Before selection sort:', array)
+    selection_sort(array)
+    print('After selection sort:', array)
+
+    array = [78, 12, 10, 8, 59, 23, 27]
+    print('Before insertion sort:', array)
+    insertion_sort(array)
+    print('After insertion sort:', array)
+
+    student_info = {'Richard': 24, 'Lara': 36, 'Prava': 45, 'Peter': 45, 'Judas': 96, 'Jimmy': 56,
+                    'Jimi': 89, 'Ronaldo': 12, 'Messi': 10, 'Pogba': 100}
+    students_marks = []
+    for value in student_info.values():
+        students_marks.append(value)
+    nl = '\n'
+    print(f'For the students {student_info} {nl}' 
+          f'Mean: {mean(students_marks)} {nl}'
+          f'Variance: {variance(students_marks)} {nl}'
+          f'Standard Deviation: {standard_deviation(students_marks)}')
+
+
+if __name__ == "__main__":
+    main()
+    
+

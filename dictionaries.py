@@ -40,7 +40,7 @@ def milk_carton_func(expiry_date, vol, price, brand):
     return milk_carton
 
 
-if __name__ == "__main__":
+def main():
     Students = ['jack', 'jill', 'david', 'silva', 'ronaldo']
     Marks = [55, 56, 57, 66, 76]
     Euro = {'France': 5, 'Germany': 2, 'Portugal': 3, 'Hungary': 6}
@@ -63,3 +63,5 @@ if __name__ == "__main__":
     print(f'The cost of six cartons of milk based on the cost of the milk_carton is: Rs. {6 * milk_cartoon["Cost"]}')
 
 
+if __name__ == "__main__":
+    main()

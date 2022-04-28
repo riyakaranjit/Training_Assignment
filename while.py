@@ -17,6 +17,11 @@ def remove_duplicates(input_list: list) -> list:
 
 
 def sandwich_func(sandwich_orders: list) -> list:
+    """
+    Taking sandwich orders and adding the finished to output list.
+    :param sandwich_orders: Various types of sandwich
+    :return: list: list of finished sandwich
+    """
     finished_sandwiches = []
     i = 0
     while i < len(sandwich_orders):
@@ -27,6 +32,10 @@ def sandwich_func(sandwich_orders: list) -> list:
 
 
 def dream_vacation_survey():
+    """
+    A dream vacation survey.
+    :return: str: Summary about of all the surveys
+    """
     survey_responses = {}
     active_polling = True
     while active_polling:
@@ -45,7 +54,7 @@ def dream_vacation_survey():
     # return survey_responses
 
 
-if __name__ == '__main__':
+def main():
     bird = ['crows', 'pigeon', 'eagles', 'falcon', 'pigeon', 'falcon', 'falcon']
     print(f'After removing all the duplicates form the list {bird}: \n {remove_duplicates(bird)}')
 
@@ -53,3 +62,7 @@ if __name__ == '__main__':
     print(f'The list of all the finished sandwiched are: {sandwich_func(sandwich_list)}')
 
     print(dream_vacation_survey())
+
+
+if __name__ == '__main__':
+    main()

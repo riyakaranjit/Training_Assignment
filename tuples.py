@@ -17,14 +17,15 @@ def vector_calculation():
 
 # 3. Write a program to demonstrate data types that can be elements of a tuple.
 def types_of_tuple():
-    tuple1 = ()
-    tuple2 = (1, 2, 3)  # similar data type
-    tuple3 = (1, 'hi', 1.2,)  # mixed type
-    tuple4 = (['a', 'apple'], ('b', 'ball'), {'c': 'cat'})
-    return tuple1, tuple2, tuple3, tuple4
+    empty_tuple = ()
+    similar_type_tuple = (1, 2, 3)  # similar data type
+    mixed_tuple = (1, 'hi', 1.2,)  # mixed type
+    nested_tuple = (['a', 'apple'], ('b', 'ball'), {'c': 'cat'})
+    return f'Empty tuple: {empty_tuple} \n Tuple with similar data type: {similar_type_tuple} \n Tuple with similar ' \
+           f'data type:{mixed_tuple} \n List and dictionary inside a tuple: {nested_tuple} '
 
 
-if __name__ == '__main__':
+def main():
     input_values_to_list = input('Enter a values separated by space in a list to convert into tuples:')
     print(list_to_tuple(input_values_to_list.split()))
     mag, dir = vector_calculation()
@@ -36,3 +37,7 @@ if __name__ == '__main__':
     print('Tuples can be unpacked without parenthesis: ', tuple1, tuple2, tuple3)
     tuple4 = 'apple',
     print('Adding a single element in a tuple: ', tuple4)
+
+
+if __name__ == '__main__':
+    main()

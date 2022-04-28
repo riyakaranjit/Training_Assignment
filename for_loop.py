@@ -34,7 +34,7 @@ def fibonacci_pattern():
         print('F' * i)
 
 
-if __name__ == "__main__":
+def main():
     A = [[1, 2, 3],
          [4, 5, 6],
          [7, 8, 9]]
@@ -55,3 +55,7 @@ if __name__ == "__main__":
 
     odd_numb_pattern()
     fibonacci_pattern()
+
+
+if __name__ == "__main__":
+    main()

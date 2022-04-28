@@ -28,20 +28,25 @@ def mean(input_list: list) -> int:
     return sum(input_list) / len(input_list)
 
 
-def standard_deviation(input_list: list) -> int:
-    variance = sum(X - mean(input_list) for X in input_list) ** 2
-    std = (variance / len(input_list)) ** 0.5
+def variance(input_list: list) -> int:
+    var = sum(X - mean(input_list) for X in input_list) ** 2
+    return var
+
+
+def standard_deviation(input_list: list) -> float:
+    var = variance(input_list)
+    std = (var / len(input_list)) ** 0.5
     return std
 
 
-if __name__ == "__main__":
+def main():
     fifa = ['Italy', 'Argentina', 'Germany', 'Brazil', 'France', 'Brazil', 'Italy', 'Spain', 'Germany', 'France']
     Bob = ['hurricane', 'tambourine', 'blowing', 'numb']
     A = ['a', 'b', 'c', 'd']
     B = ['1', 'a', '2', 'b']
-    Numbers = [1, 2, 3, 5, 88, 99, 55, 33, 41, 52]
+    numbers = [1, 2, 3, 5, 88, 99, 55, 33, 41, 52]
     name_list = ['Liam', 'Olivia', 'Noah', 'Emma', 'Benjamin', 'Ava', 'Elijah', 'Ben', 'William', 'Sophia']
-    print('Name of each students in list {} whose name starts with B: \n {}'.format(name_list, starts_with_B(name_list)))
+    print('Name of each students in list {} whose name starts with B:\n {}'.format(name_list, starts_with_B(name_list)))
 
     print('All the unique elements in the list {} are:\n{} '.format(fifa, list(set(fifa))))
 
@@ -52,6 +57,10 @@ if __name__ == "__main__":
 
     print('Intersection of list A {} and B{}: \n {}'.format(A, B, intersection_of_list(A, B)))
 
-    print('Mean of the list {} is:\n {}'.format(Numbers, mean(Numbers)))
+    print('Mean of the list {} is:\n {}'.format(numbers, mean(numbers)))
 
-    print('Standard deviation of the list {} is:\n {}'.format(Numbers, standard_deviation(Numbers)))
+    print('Standard deviation of the list {} is:\n {}'.format(numbers, standard_deviation(numbers)))
+
+
+if __name__ == "__main__":
+    main()

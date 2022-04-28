@@ -52,7 +52,7 @@ def compute_grade(marks: int) -> str:
         return 'The marks cannot exceed 100.'
 
 
-if __name__ == '__main__':
+def main():
     num1, num2, num3 = map(int, input("Enter 3 numbers separated by space: ").split())
     print(largest_number(num1, num2, num3))
     char1 = str(input('Enter a character to check its type: '))
@@ -63,3 +63,7 @@ if __name__ == '__main__':
     print(is_leap_year(input_year))
     grade = int(input('Enter your marks to check your grade: '))
     print(compute_grade(grade))
+
+
+if __name__ == '__main__':
+    main()

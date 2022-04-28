@@ -90,7 +90,7 @@ def decimal_to_hexadecimal(n):
     return "{0:#x}".format(int(n))
 
 
-if __name__ == "__main__":
+def main():
     print("Permutation of (5,3): ", permutation(5, 3))
     print("Combination of (15,3): ", combination(15, 3))
 
@@ -101,3 +101,8 @@ if __name__ == "__main__":
     print(combination_of_random_num(a, b))
     print('The binary conversion of 108 is: ', decimal_to_binary(108))
     print('The hexadecimal conversion of 1008 is:', decimal_to_hexadecimal(1008))
+
+
+if __name__ == "__main__":
+    main()
+
