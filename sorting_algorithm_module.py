@@ -67,4 +67,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-print('The __name__ here is:', __name__)
+# print('The __name__ here is:', __name__)

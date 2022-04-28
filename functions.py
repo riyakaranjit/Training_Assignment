@@ -9,7 +9,7 @@ def exponent(x: int, y: int) -> int:
 
 def multiply_list(input_list: list) -> int:
     """
-    Multiplies all the elements in the lsit
+    Multiplies all the elements in the list
     :param input_list: Given input list
     :return: int: Multiple of all the elements
     """
@@ -77,7 +77,7 @@ def main():
     print(f'The exponential value of base {X} and exponent {Y} is: {exponent(X, Y)}')
 
     list1 = list(map(int, input("Enter the element of list separated by space: ").split()))
-    print(multiply_list(list1))
+    print('Multiplies all the element: ', multiply_list(list1))
 
     string1 = input('Enter a word to count its uppercase and lowercase: ')
     print(upper_lowercase_count(string1))
