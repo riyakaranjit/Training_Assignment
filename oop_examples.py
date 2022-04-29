@@ -117,6 +117,7 @@ def main():
     print(sq.find_area())
     print(sq.fact())  # This calls the fact() from its child class as it does have one its own fact().
 
+    # This is an example for multiple inheritance.
     td = TextDescriber('hi hello hi  hello world')
     print('Multiple Resolution order: ', TextDescriber.mro())  # Own, Left, Right and at last class object
     print('--------')
