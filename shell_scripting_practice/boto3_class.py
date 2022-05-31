@@ -1,5 +1,5 @@
 import os
-
+import sys
 import boto3
 import uuid
 
@@ -67,14 +67,16 @@ class S3Manager:
             return False
         return True
 
-    def download_file(self, bucket_name, object_name, file_download_name) -> bool:
+    def download_file(self, bucket_name, object_name, file_download_name=None) -> bool:
         """
         Download an S3 object to a file.
         :param bucket_name: Bucket to upload to
         :param object_name: S3 object name to download from
-        :param file_download_name: name of the downloaded file
+        :param file_download_name: name of the downloaded file. If not specified object name is used.
         :return:
         """
+        if file_download_name is None:
+            file_download_name = os.path.basename(object_name)
         try:
             self.s3_client.download_file(bucket_name, object_name,
                                          f'{file_download_name}')
@@ -113,24 +115,24 @@ class S3Manager:
 
 def main():
     s3_manager_object = S3Manager()
-    bucket_one = s3_manager_object.create_bucket('my-first-bucket')
-    first_file = s3_manager_object.create_temp_file(10, 'first_file.csv', 'first, ')
-    second_file = s3_manager_object.create_temp_file(10, 'second_file.csv', 'second, ')
-    bucket_name = 'my-first-bucket-28305cc8-ecdc-4296-9ba3-25d208b7a0d8'
-
-    s3_manager_object.upload_file(first_file, bucket_one,
-                                  object_name='first_file.csv')
-    s3_manager_object.upload_file(second_file, bucket_one,
-                                  object_name='second_file.csv')
-    s3_manager_object.upload_file('python_questions.zip', bucket_one,
-                                  object_name='python_questions.zip')
+    bucket_name = 'my-first-bucket-ccdc6624-4309-4e21-95b4-0be07470aa8a'
 
     # s3_manager_object.move_bucket(bucket_name, 'hello_object', 'new_folder/new')
-    # s3_manager_object.download_file(bucket_name, 'first_file.csv', 'first_file.csv')
+    print("Argument from bash script: ", sys.argv[1])
+    print(bucket_name)
+
+    # s3_manager_object.download_file(bucket_name, sys.argv[1])
     # s3_manager_object.download_file(bucket_name, 'second_file.csv', 'second_file.csv')
 
     # bucket_to_be_deleted = 'my-first-bucket-47c6c0f6-8e05-455d-9bcb-04e2ccae5ce0'
     # s3_manager_object.delete_bucket(bucket_to_be_deleted)
+
+    # input_list = ['A', 'B', 'C', 'D']
+    # os.environ['INPUT_LIST'] = ' '.join(input_list)
+    # print("INPUT_LIST", os.environ['INPUT_LIST'])
+
+    # import subprocess
+    # subprocess.call(['bash', 's3_bash.sh', 'foo', 'bar'])
 
 
 if __name__ == '__main__':

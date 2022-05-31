@@ -51,11 +51,11 @@ def request_with_retry(url, backoff_in_seconds=1):
 
 def main():
     url = 'http://restapi.adequateshop.com/api/Tourist?page=2'
-    # url = 'http://api.open-notify.org/iss-pass.json'  # Retry to connect to the server: add params to the requests
+    url = 'http://api.open-notify.org/iss-pass.json'  # Retry to connect to the server: add params to the requests
     # url = 'https://api.github.com'  # raises SSLError
 
     try:
-        request_with_retry(url=url)
+        print(request_with_retry(url=url))
     except RuntimeError as err:
         print(err)
         exit(1)

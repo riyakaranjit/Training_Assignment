@@ -1,5 +1,5 @@
 def list_to_dict(list1: list, list2: list) -> dict:
-    student_record = {Students[i]: (Marks[i]) for i in range(len(Students))}
+    student_record = {list1[i]: (list2[i]) for i in range(len(list1))}
     lowest_value = min(student_record.values())
     print(lowest_value)
     new_student_records = {k: v for k, v in student_record.items() if v != lowest_value}

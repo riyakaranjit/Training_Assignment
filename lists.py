@@ -1,3 +1,11 @@
+import os
+
+
+def rm(filename):
+    if os.path.isfile(filename):
+        os.remove(filename)
+
+
 def starts_with_B(input_list):
     output_list = []
     for i in input_list:
