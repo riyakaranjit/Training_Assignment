@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS Gender;
+CREATE TABLE Gender (GenderId INT PRIMARY KEY NOT NULL,Gender nvarchar(10) NOT NULL);
+Insert Into Gender(GenderId,Gender) Values(1,'Male'), (2,'Female'), (3,'Unknown');
+DROP TABLE IF EXISTS Student;
+CREATE TABLE ? (StudentId INT IDENTITY(1,1) PRIMARY KEY,NAME nvarchar(50) NOT NULL,AGE INT NOT NULL,ADDRESS nvarchar(50),GenderId int FOREIGN KEY REFERENCES Gender(GenderId));

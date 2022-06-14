@@ -1,10 +1,11 @@
 USE traineeshipDB 
-
+GO
 --DDL statement
-CREATE TABLE riya.table_person( ID int NOT NULL PRIMARY KEY,
+CREATE TABLE riya.table_person_test( ID int NOT NULL PRIMARY KEY,
 Name NVARCHAR(50) NOT NULL ,
 Email NVARCHAR(50) NOT NULL,
-GenderID int );
+GenderID int )
+GO
 
 CREATE TABLE riya.table_gender( ID int NOT NULL PRIMARY KEY,
 Gender nvarchar(50) NOT NULL );

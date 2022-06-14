@@ -147,7 +147,43 @@ LEVEL int NOT NULL,
 );
 
 SELECT * FROM riya.table_generate_hierarchy;
+ALTER TABLE riya.table_generate_hierarchy DROP COLUMN LEVEL ;
+-- Correct Solution 
+WITH HierarchyLvl AS (
+SELECT
+	ID,
+	Name,
+	MgrID ,
+	1 AS LEVEL
+FROM
+	riya.table_generate_hierarchy tgh
+WHERE
+	MgrID IS NULL
+UNION ALL
+SELECT
+	e.ID,
+	e.Name ,
+	e.MgrID ,
+	LEVEL + 1
+FROM
+	riya.table_generate_hierarchy e
+INNER JOIN HierarchyLvl d ON
+	e.MgrID = d.ID )
+SELECT
+	emp.Name,
+	Isnull(mgr.name,
+	'HEAD') AS Manager,
+	emp.Level
+FROM
+	HierarchyLvl emp
+LEFT JOIN HierarchyLvl mgr ON
+	emp.MgrID = mgr.ID;
 
+--select * from HierarchyLvl
+--ORDER BY [LEVEL] ;
+
+--
+----
 SELECT
 	employee.*
 FROM
