@@ -62,7 +62,7 @@ class SqliteConnection:
 
         try:
             for command in sql_commands:
-                self.conn_handler.execute_non_returning_query(command, '')
+                self.conn_handler.execute_non_returning_query(command, 'Student')
             print('Student Table created successfully')
             print('Gender Table created successfully')
 

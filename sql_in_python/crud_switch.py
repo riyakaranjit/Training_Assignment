@@ -13,7 +13,7 @@ def main():
     elif database_type == 2:
         sqlserver_conn = SqLServerConnection('test_db')
         connection_type = sqlserver_conn
-        sqlserver_conn.sql_server_table_creation()
+        # sqlserver_conn.sql_server_table_creation()
     else:
         print('Wrong Choice!')
         exit()
